@@ -37,9 +37,7 @@ string reverseWord(string str){
    char g;
    while(start<end)
    {
-        g=str[start];
-        str[start]=str[end];
-        str[end]=g;
+        swap(str[start],str[end]);
        start++;
        end--;
    }
