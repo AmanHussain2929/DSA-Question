@@ -24,22 +24,9 @@ int main() {
 
 pair<long long, long long> getMinMax(long long a[], int n) {
     
-    int largest,smallest;
-    largest=a[0];
-    smallest=a[0];
-    for(int i=1;i<n;i++)
-    {
-        if(a[i]>largest)
-        {
-            largest=a[i];
-        }
-        if(a[i]<smallest)
-        {
-            smallest=a[i];
-        }
-    }
+    sort(a,a+n);
     pair<int,int> ans;
-    ans.first=smallest;
-    ans.second=largest;
+    ans.first=a[0];
+    ans.second=a[n-1];
     return ans;
 }
