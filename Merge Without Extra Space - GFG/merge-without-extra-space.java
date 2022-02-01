@@ -52,10 +52,7 @@ class Solution {
                arr1[i]=arr2[j];
                arr2[j]=g;
            }
-           else
-           {
-               break;
-           }
+          
            i--;
            j++;
        }
