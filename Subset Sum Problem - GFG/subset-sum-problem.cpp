@@ -11,7 +11,7 @@ class Solution{
 public:
     bool isSubsetSum(vector<int>arr, int sum){
        int n=arr.size();
-        int dp[n+1][sum+1];
+        bool dp[n+1][sum+1];
        for(int i=0; i<=n; i++) dp[i][0] = 1;
        for(int i=1; i<=sum; i++)   dp[0][i] = 0;
        
