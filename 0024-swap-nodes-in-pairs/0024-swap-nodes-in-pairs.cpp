@@ -11,13 +11,55 @@
 class Solution {
 public:
     ListNode* swapPairs(ListNode* head) {
-        if(head==NULL || head->next==NULL)
+        ListNode* newHead=NULL;
+        ListNode* tail;
+        ListNode* k;
+        ListNode* temp=head;
+        stack<ListNode*> st;
+        while(temp!=NULL)
         {
-            return head;
-        } 
-         ListNode* temp=head->next;
-          head->next=swapPairs(head->next->next);
-         temp->next=head;
-       return temp;   
+            k=temp;
+            temp=temp->next;
+            k->next=NULL;
+            st.push(k);
+             if(st.size()==2)
+             {
+                  while(!st.empty())
+                  {
+                   k=st.top();
+                   st.pop();
+                   if(newHead==NULL)
+                   {
+                     newHead=tail=k;        
+                   }
+                   else
+                    {
+                     tail->next=k;
+                     tail=k;  
+                    }
+                 
+                  }
+                 
+                 
+             }   //  st.size()==2;
+            
+            
+        }// while loop
+        while(!st.empty())
+        {
+            k=st.top();
+            st.pop();
+             if(newHead==NULL)
+                   {
+                     newHead=tail=k;        
+                   }
+                   else
+                    {
+                     tail->next=k;
+                      tail=k   ;
+                    }
+            
+        }
+        return newHead;
     }
-};    
+};
