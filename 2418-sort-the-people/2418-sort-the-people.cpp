@@ -1,19 +1,22 @@
 class Solution {
 public:
     vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
-         int i, j;
-        int n=heights.size();
-    for (i = 0; i < n - 1; i++)
- 
-        // Last i elements are already
-        // in place
-        for (j = 0; j < n - i - 1; j++)
+       int m=heights.size()-2;
+        while(m>=0)
         {
-            if (heights[j] < heights[j + 1])
+            int e=0;
+            int f=1;
+            while(e<=m)
             {
-                swap(heights[j], heights[j + 1]);
-                swap(names[j],names[j+1]);
+                if(heights[e]<heights[f])
+                {
+                    swap(heights[e],heights[f]);
+                    swap(names[e],names[f]);
+                }
+                e++;
+                f++;
             }
+            m--;
         }
         return names;
     }
